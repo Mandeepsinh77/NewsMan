@@ -1,9 +1,8 @@
-import './App.css';
-
 import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import './App.css';
 // import {
 //   BrowserRouter as Router,
 //   Switch,
@@ -16,7 +15,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 export default class App extends Component {
 
   render() {
-    const noPages=6;
+    const noPages = 6;
     return (
       <>
         <Navbar />
