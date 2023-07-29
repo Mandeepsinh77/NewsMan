@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 
 export default class App extends Component {
-  noPages = 9;
+  noPages = 6 ;
   render() {
     return (
       <>
