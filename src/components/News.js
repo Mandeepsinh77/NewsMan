@@ -43,7 +43,7 @@ export class News extends Component {
     async componentDidMount() {
         this.updateNews();
     }
-    
+
     handleNextClick = async () => {
         this.setState({ page: this.state.page + 1 })
         this.updateNews()
@@ -59,7 +59,7 @@ export class News extends Component {
                 <h1 className='text-center' style={{ margin: "30px 0px" }}>NewsMap - Top {this.props.category} </h1>
                 {this.state.loading && <Spinner />}
                 <div className='row'>
-                    {!this.state.loading && this.state.articles.map((element) => {
+                    {!this.state.loading && this.state.articles?.map((element) => {
                         return <div className="col-md-4" key={element.url}>
                             <Newsitem title={element.title ? element.title.slice(0, 50) : ""} description={element.description ? element.description.slice(0, 50) : ""} imageUrl={element.urlToImage ? element.urlToImage : "./news.png "} newsUrl={element.url ? element.url : "/"} author={element.author ? element.author : "Unknown"} date={element.publishedAt} source={element.source.name} />
                         </div>
