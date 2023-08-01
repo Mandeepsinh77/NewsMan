@@ -29,13 +29,13 @@ export class News extends Component {
     async updateNews() {
         const url = "https://newsman-backend.onrender.com/getData";
 
-       this.setState({
+        this.setState({
             loading: true
         })
         const jsondata = {
-            cat:this.props.category,
-            page:this.state.page,
-            pageSize:this.props.pageSize
+            cat: this.props.category,
+            page: this.state.page,
+            pageSize: this.props.pageSize
         }
         const res = await fetch(url, {
             method: 'POST', // Change the HTTP method to POST
@@ -70,7 +70,7 @@ export class News extends Component {
     render() {
         return (
             <div className='container my-3'>
-                <h1 className='text-center' style={{ margin: "30px 0px" }}>NewsMap - Top {this.props.category} </h1>
+                <h1 className='text-center' style={{ margin: "30px 0px" }}>NewsMan - Top {this.props.category} </h1>
                 {this.state.loading && <Spinner />}
                 <div className='row'>
                     {!this.state.loading && this.state.articles?.map((element) => {
