@@ -27,7 +27,7 @@ export class News extends Component {
     }
 
     async updateNews() {
-        const url = "http://localhost:5000/getData";
+        const url = "https://newsman-backend.onrender.com/getData";
 
        this.setState({
             loading: true
