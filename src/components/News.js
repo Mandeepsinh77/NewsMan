@@ -11,7 +11,7 @@ export class News extends Component {
         category: 'general',
     }
     static propType = {
-        contrt: PropTypes.string,
+        contry: PropTypes.string,
         pageSize: PropTypes.number,
         category: PropTypes.string,
     }
@@ -27,15 +27,29 @@ export class News extends Component {
     }
 
     async updateNews() {
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.contry}&category=${this.props.category}&apiKey=00609756fdd54ad88cd4e1d4eefa99b9&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-        this.setState({
+        const url = "http://localhost:5000/getData";
+
+       this.setState({
             loading: true
         })
-        let data = await fetch(url);
-        let parseData = await data.json();
+        const jsondata = {
+            cat:this.props.category,
+            page:this.state.page,
+            pageSize:this.props.pageSize
+        }
+        const res = await fetch(url, {
+            method: 'POST', // Change the HTTP method to POST
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(jsondata),
+        });
+        const data = await res.json()
+        console.log(data.response)
+        // let parseData = await data.json();
         this.setState({
-            articles: parseData.articles,
-            totalResults: parseData.totalResults,
+            articles: data.response.articles,
+            totalResults: data.response.totalResults,
             loading: false,
         })
 
