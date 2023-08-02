@@ -14,7 +14,7 @@ app.use(cors())
 app.post("/getData", async (req, res) => {
     // console.log(req)
     const options = req.body
-    console.log(options['cat']);
+    // console.log(options['cat']);
     const response = await getData(options['cat'],options['page'],options['pageSize']);
     res.json({response});
 })

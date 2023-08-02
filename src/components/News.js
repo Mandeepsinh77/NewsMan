@@ -45,7 +45,7 @@ export class News extends Component {
             body: JSON.stringify(jsondata),
         });
         const data = await res.json()
-        console.log(data.response)
+        // console.log(data.response)
         // let parseData = await data.json();
         this.setState({
             articles: data.response.articles,
